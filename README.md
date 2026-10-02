@@ -7,10 +7,11 @@ Banco de dados da plataforma **AVALON**, desenvolvido pela equipe **Nexus**, seg
 ### Modelo Conceitual
 ![Modelo Conceitual](img/MODELO%20CONCEITUAL.jpeg)
 
-### Modelo Lógico
+### Modelo Lógico V1
 ![Modelo Lógico V1](img/MODELO%20L%C3%93GICO%20V1.jpeg)
 
-> **Nota:** o número de tabelas aumentou desde a v1; as imagens atuais podem estar desatualizadas em relação ao modelo mais recente.
+### Modelo Lógico V2
+![Modelo Lógico V2](img/MODELO%20L%C3%93GICO%20V2.jpeg)
 
 ## Equipe
 
