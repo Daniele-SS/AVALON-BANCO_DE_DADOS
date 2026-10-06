@@ -13,6 +13,9 @@ Banco de dados da plataforma **AVALON**, desenvolvido pela equipe **Nexus**, seg
 ### Modelo Lógico V2
 ![Modelo Lógico V2](img/MODELO%20L%C3%93GICO%20V2.jpeg)
 
+### Modelo Lógico V3
+![Modelo Lógico V3](img/MODELO%20L%C3%93GICO%20V3.jpeg)
+
 ## Equipe
 
 | Nome | Função |
