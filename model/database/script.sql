@@ -8416,3 +8416,692 @@ SHOW TRIGGERS FROM db_tcc_rh;
 -- a transação e mantém os dados originais do banco.
 --
 -- ROLLBACK;
+
+
+-- ================================================================
+-- MASSA DE DADOS FICTÍCIA PARA TESTE DE K-ANONIMATO
+-- ================================================================
+--
+-- Objetivo:
+-- Criar grupos de colaboradores com 4, 5 e 6 integrantes
+-- em diferentes setores.
+--
+-- Estes dados são exclusivamente para teste.
+--
+-- Ao finalizar os testes, utilize:
+--
+-- ROLLBACK;
+--
+-- para remover todos os colaboradores inseridos neste teste.
+-- ================================================================
+
+
+-- START TRANSACTION;
+
+
+-- ================================================================
+-- RECURSOS HUMANOS
+-- Atualmente: 2 colaboradores
+-- Após o teste: 4 colaboradores
+-- Inserir: 2 colaboradores
+-- ================================================================
+
+-- INSERT INTO tbl_colaborador
+-- (
+--     id_setor,
+--     id_cargo,
+--     id_jornada_escala,
+--     matricula,
+--     nome,
+--     cpf,
+--     data_nascimento,
+--     email,
+--     telefone,
+--     data_admissao,
+--     data_desligamento,
+--     tipo_vinculo,
+--     status
+-- )
+-- SELECT
+--     1,
+--     id_cargo,
+--     id_jornada_escala,
+--     'TESTEK00001',
+--     'Colaborador Teste K 01',
+--     '99999999101',
+--     '1995-01-10',
+--     'teste.k01@nexusrh.com',
+--     '11999990001',
+--     '2026-01-05',
+--     NULL,
+--     'CLT',
+--     'Ativo'
+-- FROM tbl_colaborador
+-- WHERE id_setor = 1
+-- LIMIT 1;
+
+
+-- INSERT INTO tbl_colaborador
+-- (
+--     id_setor,
+--     id_cargo,
+--     id_jornada_escala,
+--     matricula,
+--     nome,
+--     cpf,
+--     data_nascimento,
+--     email,
+--     telefone,
+--     data_admissao,
+--     data_desligamento,
+--     tipo_vinculo,
+--     status
+-- )
+-- SELECT
+--     1,
+--     id_cargo,
+--     id_jornada_escala,
+--     'TESTEK00002',
+--     'Colaborador Teste K 02',
+--     '99999999002',
+--     '1996-02-15',
+--     'teste.k02@nexusrh.com',
+--     '11999990002',
+--     '2026-01-06',
+--     NULL,
+--     'CLT',
+--     'Ativo'
+-- FROM tbl_colaborador
+-- WHERE id_setor = 1
+-- LIMIT 1;
+
+
+-- ================================================================
+-- TECNOLOGIA DA INFORMAÇÃO
+-- Atualmente: 3 colaboradores
+-- Após o teste: 5 colaboradores
+-- Inserir: 2 colaboradores
+-- ================================================================
+
+-- INSERT INTO tbl_colaborador
+-- (
+--     id_setor,
+--     id_cargo,
+--     id_jornada_escala,
+--     matricula,
+--     nome,
+--     cpf,
+--     data_nascimento,
+--     email,
+--     telefone,
+--     data_admissao,
+--     data_desligamento,
+--     tipo_vinculo,
+--     status
+-- )
+-- SELECT
+--     2,
+--     id_cargo,
+--     id_jornada_escala,
+--     'TESTEK00003',
+--     'Colaborador Teste K 03',
+--     '99999999003',
+--     '1997-03-20',
+--     'teste.k03@nexusrh.com',
+--     '11999990003',
+--     '2026-01-07',
+--     NULL,
+--     'CLT',
+--     'Ativo'
+-- FROM tbl_colaborador
+-- WHERE id_setor = 2
+-- LIMIT 1;
+
+
+-- INSERT INTO tbl_colaborador
+-- (
+--     id_setor,
+--     id_cargo,
+--     id_jornada_escala,
+--     matricula,
+--     nome,
+--     cpf,
+--     data_nascimento,
+--     email,
+--     telefone,
+--     data_admissao,
+--     data_desligamento,
+--     tipo_vinculo,
+--     status
+-- )
+-- SELECT
+--     2,
+--     id_cargo,
+--     id_jornada_escala,
+--     'TESTEK00004',
+--     'Colaborador Teste K 04',
+--     '99999999004',
+--     '1998-04-25',
+--     'teste.k04@nexusrh.com',
+--     '11999990004',
+--     '2026-01-08',
+--     NULL,
+--     'CLT',
+--     'Ativo'
+-- FROM tbl_colaborador
+-- WHERE id_setor = 2
+-- LIMIT 1;
+
+
+-- ================================================================
+-- ADMINISTRATIVO
+-- Atualmente: 2 colaboradores
+-- Após o teste: 6 colaboradores
+-- Inserir: 4 colaboradores
+-- ================================================================
+
+-- INSERT INTO tbl_colaborador
+-- (
+--     id_setor,
+--     id_cargo,
+--     id_jornada_escala,
+--     matricula,
+--     nome,
+--     cpf,
+--     data_nascimento,
+--     email,
+--     telefone,
+--     data_admissao,
+--     data_desligamento,
+--     tipo_vinculo,
+--     status
+-- )
+-- SELECT
+--     3,
+--     id_cargo,
+--     id_jornada_escala,
+--     'TESTEK00005',
+--     'Colaborador Teste K 05',
+--     '99999999005',
+--     '1994-05-12',
+--     'teste.k05@nexusrh.com',
+--     '11999990005',
+--     '2026-01-09',
+--     NULL,
+--     'CLT',
+--     'Ativo'
+-- FROM tbl_colaborador
+-- WHERE id_setor = 3
+-- LIMIT 1;
+
+
+-- INSERT INTO tbl_colaborador
+-- (
+--     id_setor,
+--     id_cargo,
+--     id_jornada_escala,
+--     matricula,
+--     nome,
+--     cpf,
+--     data_nascimento,
+--     email,
+--     telefone,
+--     data_admissao,
+--     data_desligamento,
+--     tipo_vinculo,
+--     status
+-- )
+-- SELECT
+--     3,
+--     id_cargo,
+--     id_jornada_escala,
+--     'TESTEK00006',
+--     'Colaborador Teste K 06',
+--     '99999999006',
+--     '1995-06-18',
+--     'teste.k06@nexusrh.com',
+--     '11999990006',
+--     '2026-01-10',
+--     NULL,
+--     'CLT',
+--     'Ativo'
+-- FROM tbl_colaborador
+-- WHERE id_setor = 3
+-- LIMIT 1;
+
+
+-- INSERT INTO tbl_colaborador
+-- (
+--     id_setor,
+--     id_cargo,
+--     id_jornada_escala,
+--     matricula,
+--     nome,
+--     cpf,
+--     data_nascimento,
+--     email,
+--     telefone,
+--     data_admissao,
+--     data_desligamento,
+--     tipo_vinculo,
+--     status
+-- )
+-- SELECT
+--     3,
+--     id_cargo,
+--     id_jornada_escala,
+--     'TESTEK00007',
+--     'Colaborador Teste K 07',
+--     '99999999007',
+--     '1996-07-22',
+--     'teste.k07@nexusrh.com',
+--     '11999990007',
+--     '2026-01-11',
+--     NULL,
+--     'CLT',
+--     'Ativo'
+-- FROM tbl_colaborador
+-- WHERE id_setor = 3
+-- LIMIT 1;
+
+
+-- INSERT INTO tbl_colaborador
+-- (
+--     id_setor,
+--     id_cargo,
+--     id_jornada_escala,
+--     matricula,
+--     nome,
+--     cpf,
+--     data_nascimento,
+--     email,
+--     telefone,
+--     data_admissao,
+--     data_desligamento,
+--     tipo_vinculo,
+--     status
+-- )
+-- SELECT
+--     3,
+--     id_cargo,
+--     id_jornada_escala,
+--     'TESTEK00008',
+--     'Colaborador Teste K 08',
+--     '99999999008',
+--     '1997-08-30',
+--     'teste.k08@nexusrh.com',
+--     '11999990008',
+--     '2026-01-12',
+--     NULL,
+--     'CLT',
+--     'Ativo'
+-- FROM tbl_colaborador
+-- WHERE id_setor = 3
+-- LIMIT 1;
+
+
+-- ================================================================
+-- FINANCEIRO
+-- Atualmente: 2 colaboradores
+-- Após o teste: 5 colaboradores
+-- Inserir: 3 colaboradores
+-- ================================================================
+
+-- INSERT INTO tbl_colaborador
+-- (
+--     id_setor,
+--     id_cargo,
+--     id_jornada_escala,
+--     matricula,
+--     nome,
+--     cpf,
+--     data_nascimento,
+--     email,
+--     telefone,
+--     data_admissao,
+--     data_desligamento,
+--     tipo_vinculo,
+--     status
+-- )
+-- SELECT
+--     4,
+--     id_cargo,
+--     id_jornada_escala,
+--     'TESTEK00009',
+--     'Colaborador Teste K 09',
+--     '99999999009',
+--     '1994-09-14',
+--     'teste.k09@nexusrh.com',
+--     '11999990009',
+--     '2026-01-13',
+--     NULL,
+--     'CLT',
+--     'Ativo'
+-- FROM tbl_colaborador
+-- WHERE id_setor = 4
+-- LIMIT 1;
+
+
+-- INSERT INTO tbl_colaborador
+-- (
+--     id_setor,
+--     id_cargo,
+--     id_jornada_escala,
+--     matricula,
+--     nome,
+--     cpf,
+--     data_nascimento,
+--     email,
+--     telefone,
+--     data_admissao,
+--     data_desligamento,
+--     tipo_vinculo,
+--     status
+-- )
+-- SELECT
+--     4,
+--     id_cargo,
+--     id_jornada_escala,
+--     'TESTEK00010',
+--     'Colaborador Teste K 10',
+--     '99999999010',
+--     '1995-10-16',
+--     'teste.k10@nexusrh.com',
+--     '11999990010',
+--     '2026-01-14',
+--     NULL,
+--     'CLT',
+--     'Ativo'
+-- FROM tbl_colaborador
+-- WHERE id_setor = 4
+-- LIMIT 1;
+
+
+-- INSERT INTO tbl_colaborador
+-- (
+--     id_setor,
+--     id_cargo,
+--     id_jornada_escala,
+--     matricula,
+--     nome,
+--     cpf,
+--     data_nascimento,
+--     email,
+--     telefone,
+--     data_admissao,
+--     data_desligamento,
+--     tipo_vinculo,
+--     status
+-- )
+-- SELECT
+--     4,
+--     id_cargo,
+--     id_jornada_escala,
+--     'TESTEK00011',
+--     'Colaborador Teste K 11',
+--     '99999999011',
+--     '1996-11-21',
+--     'teste.k11@nexusrh.com',
+--     '11999990011',
+--     '2026-01-15',
+--     NULL,
+--     'CLT',
+--     'Ativo'
+-- FROM tbl_colaborador
+-- WHERE id_setor = 4
+-- LIMIT 1;
+
+
+-- ================================================================
+-- OPERAÇÕES
+-- Atualmente: 1 colaborador
+-- Após o teste: 6 colaboradores
+-- Inserir: 5 colaboradores
+-- ================================================================
+
+-- INSERT INTO tbl_colaborador
+-- (
+--     id_setor,
+--     id_cargo,
+--     id_jornada_escala,
+--     matricula,
+--     nome,
+--     cpf,
+--     data_nascimento,
+--     email,
+--     telefone,
+--     data_admissao,
+--     data_desligamento,
+--     tipo_vinculo,
+--     status
+-- )
+-- SELECT
+--     5,
+--     id_cargo,
+--     id_jornada_escala,
+--     'TESTEK00012',
+--     'Colaborador Teste K 12',
+--     '99999999012',
+--     '1994-12-10',
+--     'teste.k12@nexusrh.com',
+--     '11999990012',
+--     '2026-01-16',
+--     NULL,
+--     'CLT',
+--     'Ativo'
+-- FROM tbl_colaborador
+-- WHERE id_setor = 5
+-- LIMIT 1;
+
+
+-- INSERT INTO tbl_colaborador
+-- (
+--     id_setor,
+--     id_cargo,
+--     id_jornada_escala,
+--     matricula,
+--     nome,
+--     cpf,
+--     data_nascimento,
+--     email,
+--     telefone,
+--     data_admissao,
+--     data_desligamento,
+--     tipo_vinculo,
+--     status
+-- )
+-- SELECT
+--     5,
+--     id_cargo,
+--     id_jornada_escala,
+--     'TESTEK00013',
+--     'Colaborador Teste K 13',
+--     '99999999013',
+--     '1995-01-17',
+--     'teste.k13@nexusrh.com',
+--     '11999990013',
+--     '2026-01-17',
+--     NULL,
+--     'CLT',
+--     'Ativo'
+-- FROM tbl_colaborador
+-- WHERE id_setor = 5
+-- LIMIT 1;
+
+
+-- INSERT INTO tbl_colaborador
+-- (
+--     id_setor,
+--     id_cargo,
+--     id_jornada_escala,
+--     matricula,
+--     nome,
+--     cpf,
+--     data_nascimento,
+--     email,
+--     telefone,
+--     data_admissao,
+--     data_desligamento,
+--     tipo_vinculo,
+--     status
+-- )
+-- SELECT
+--     5,
+--     id_cargo,
+--     id_jornada_escala,
+--     'TESTEK00014',
+--     'Colaborador Teste K 14',
+--     '99999999014',
+--     '1996-02-23',
+--     'teste.k14@nexusrh.com',
+--     '11999990014',
+--     '2026-01-18',
+--     NULL,
+--     'CLT',
+--     'Ativo'
+-- FROM tbl_colaborador
+-- WHERE id_setor = 5
+-- LIMIT 1;
+
+
+-- INSERT INTO tbl_colaborador
+-- (
+--     id_setor,
+--     id_cargo,
+--     id_jornada_escala,
+--     matricula,
+--     nome,
+--     cpf,
+--     data_nascimento,
+--     email,
+--     telefone,
+--     data_admissao,
+--     data_desligamento,
+--     tipo_vinculo,
+--     status
+-- )
+-- SELECT
+--     5,
+--     id_cargo,
+--     id_jornada_escala,
+--     'TESTEK00015',
+--     'Colaborador Teste K 15',
+--     '99999999015',
+--     '1997-03-29',
+--     'teste.k15@nexusrh.com',
+--     '11999990015',
+--     '2026-01-19',
+--     NULL,
+--     'CLT',
+--     'Ativo'
+-- FROM tbl_colaborador
+-- WHERE id_setor = 5
+-- LIMIT 1;
+
+
+-- INSERT INTO tbl_colaborador
+-- (
+--     id_setor,
+--     id_cargo,
+--     id_jornada_escala,
+--     matricula,
+--     nome,
+--     cpf,
+--     data_nascimento,
+--     email,
+--     telefone,
+--     data_admissao,
+--     data_desligamento,
+--     tipo_vinculo,
+--     status
+-- )
+-- SELECT
+--     5,
+--     id_cargo,
+--     id_jornada_escala,
+--     'TESTEK00016',
+--     'Colaborador Teste K 16',
+--     '99999999016',
+--     '1998-04-30',
+--     'teste.k16@nexusrh.com',
+--     '11999990016',
+--     '2026-01-20',
+--     NULL,
+--     'CLT',
+--     'Ativo'
+-- FROM tbl_colaborador
+-- WHERE id_setor = 5
+-- LIMIT 1;
+
+
+-- ================================================================
+-- VERIFICAR A MASSA DE DADOS
+-- ================================================================
+
+-- SELECT
+--     tbl_setor.id,
+--     tbl_setor.nome AS setor,
+--     COUNT(tbl_colaborador.id) AS quantidade_colaboradores
+-- FROM tbl_setor
+-- LEFT JOIN tbl_colaborador
+--     ON tbl_colaborador.id_setor = tbl_setor.id
+-- GROUP BY
+--     tbl_setor.id,
+--     tbl_setor.nome
+-- ORDER BY
+--     tbl_setor.id;
+
+
+-- ================================================================
+-- VERIFICAR SOMENTE OS COLABORADORES CRIADOS PARA O TESTE
+-- ================================================================
+
+-- SELECT
+--     tbl_colaborador.id,
+--     tbl_colaborador.id_setor,
+--     tbl_setor.nome AS setor,
+--     tbl_colaborador.matricula,
+--     tbl_colaborador.nome,
+--     tbl_colaborador.cpf,
+--     tbl_colaborador.email,
+--     tbl_colaborador.status
+-- FROM tbl_colaborador
+-- INNER JOIN tbl_setor
+--     ON tbl_colaborador.id_setor = tbl_setor.id
+-- WHERE tbl_colaborador.matricula LIKE 'TESTEK%'
+-- ORDER BY
+--     tbl_colaborador.id;
+
+
+-- ================================================================
+-- TESTE DE K-ANONIMATO
+-- ================================================================
+
+-- SELECT
+--     tbl_setor.nome AS setor,
+--     COUNT(tbl_colaborador.id) AS quantidade_colaboradores,
+--     CASE
+--         WHEN COUNT(tbl_colaborador.id) >= 6
+--             THEN 'Atende k = 6'
+--         WHEN COUNT(tbl_colaborador.id) >= 5
+--             THEN 'Atende k = 5'
+--         WHEN COUNT(tbl_colaborador.id) >= 4
+--             THEN 'Atende k = 4'
+--         ELSE
+--             'Não atende k = 4'
+--     END AS resultado_anonimato
+-- FROM tbl_setor
+-- LEFT JOIN tbl_colaborador
+--     ON tbl_colaborador.id_setor = tbl_setor.id
+-- GROUP BY
+--     tbl_setor.id,
+--     tbl_setor.nome
+-- ORDER BY
+--     quantidade_colaboradores;
+
+
+-- ================================================================
+-- FIM DO TESTE
+-- ================================================================
+
+-- ROLLBACK;
