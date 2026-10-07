@@ -8206,3 +8206,213 @@ SHOW TRIGGERS FROM db_tcc_rh;
 -- SELECT * FROM visao_ferias_dos_colaboradores;
 
 -- SELECT * FROM visao_beneficios_ativos_dos_colaboradores;
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    SELECT
+    tbl_setor.id,
+    tbl_setor.nome,
+    COUNT(tbl_colaborador.id) AS quantidade_colaboradores
+FROM tbl_setor
+
+LEFT JOIN tbl_colaborador
+    ON tbl_colaborador.id_setor = tbl_setor.id
+
+GROUP BY
+    tbl_setor.id,
+    tbl_setor.nome
+
+HAVING
+    COUNT(tbl_colaborador.id) < 4;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    SELECT
+    tbl_setor.nome AS setor,
+    COUNT(tbl_colaborador.id) AS quantidade_colaboradores,
+
+    CASE
+        WHEN COUNT(tbl_colaborador.id) >= 6
+            THEN 'Atende k = 6'
+        WHEN COUNT(tbl_colaborador.id) >= 5
+            THEN 'Atende k = 5'
+        WHEN COUNT(tbl_colaborador.id) >= 4
+            THEN 'Atende k = 4'
+        ELSE
+            'Não atende k = 4'
+    END AS resultado_anonimato
+
+FROM tbl_setor
+
+LEFT JOIN tbl_colaborador
+    ON tbl_colaborador.id_setor = tbl_setor.id
+
+GROUP BY
+    tbl_setor.id,
+    tbl_setor.nome
+
+ORDER BY
+    quantidade_colaboradores;
+    
+    
+    
+    
+    
+--     START TRANSACTION;
+
+-- INSERT INTO tbl_colaborador
+-- (
+--     id_setor,
+--     id_cargo,
+--     id_jornada_escala,
+--     matricula,
+--     nome,
+--     cpf,
+--     data_nascimento,
+--     email,
+--     telefone,
+--     data_admissao,
+--     data_desligamento,
+--     tipo_vinculo,
+--     status
+-- )
+-- SELECT
+--     1,
+--     id_cargo,
+--     id_jornada_escala,
+--     'TESTE001',
+--     'Colaborador Teste K 01',
+--     '99999999001',
+--     '1995-01-01',
+--     'teste.k01@nexusrh.com',
+--     '11999990001',
+--     '2026-01-01',
+--     NULL,
+--     'CLT',
+--     'Ativo'
+-- FROM tbl_colaborador
+-- WHERE id = 1;
+
+-- INSERT INTO tbl_colaborador
+-- (
+--     id_setor,
+--     id_cargo,
+--     id_jornada_escala,
+--     matricula,
+--     nome,
+--     cpf,
+--     data_nascimento,
+--     email,
+--     telefone,
+--     data_admissao,
+--     data_desligamento,
+--     tipo_vinculo,
+--     status
+-- )
+-- SELECT
+--     1,
+--     id_cargo,
+--     id_jornada_escala,
+--     'TESTE002',
+--     'Colaborador Teste K 02',
+--     '99999999002',
+--     '1995-01-01',
+--     'teste.k02@nexusrh.com',
+--     '11999990002',
+--     '2026-01-01',
+--     NULL,
+--     'CLT',
+--     'Ativo'
+-- FROM tbl_colaborador
+-- WHERE id = 1;
+
+
+
+-- SELECT
+--     tbl_setor.nome AS setor,
+--     COUNT(tbl_colaborador.id) AS quantidade_colaboradores
+-- FROM tbl_setor
+
+-- LEFT JOIN tbl_colaborador
+--     ON tbl_colaborador.id_setor = tbl_setor.id
+
+-- GROUP BY
+--     tbl_setor.id,
+--     tbl_setor.nome
+
+-- ORDER BY
+--     quantidade_colaboradores;
+--     
+--     
+--     
+--     
+--     
+-- -- ferias
+
+
+-- SELECT
+--     tbl_ferias.id,
+--     tbl_ferias.id_colaborador,
+--     tbl_colaborador.nome AS nome_colaborador,
+--     tbl_ferias.data_inicio,
+--     tbl_ferias.data_fim,
+--     tbl_ferias.quantidade_dias,
+--     tbl_ferias.status
+-- FROM tbl_ferias
+
+-- INNER JOIN tbl_colaborador
+--     ON tbl_ferias.id_colaborador =
+--        tbl_colaborador.id
+
+-- ORDER BY
+--     tbl_ferias.id_colaborador,
+--     tbl_ferias.data_inicio;
+--     
+--     
+--     
+-- -- ================================================================
+-- -- TESTE: IDENTIFICAR CONFLITOS DE DATAS DE FÉRIAS
+-- -- ================================================================
+
+
+-- START TRANSACTION;
+
+-- INSERT INTO tbl_ferias
+-- (
+--     id_colaborador,
+--     data_inicio,
+--     data_fim,
+--     quantidade_dias,
+--     status,
+--     observacao
+-- )
+-- VALUES
+-- (
+--     2,
+--     '2026-12-15',
+--     '2026-12-20',
+--     6,
+--     'Pendente',
+--     'Teste temporário de conflito de datas de férias.'
+-- );
+
+
+-- ===================================================================================
+-- Usa o Script abaixo para remover todos os testes para não modificar em nada o banco 
+-- ROLLBACK;
