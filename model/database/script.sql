@@ -8207,74 +8207,66 @@ SHOW TRIGGERS FROM db_tcc_rh;
 
 -- SELECT * FROM visao_beneficios_ativos_dos_colaboradores;
 
-
-
-
-
-
-
-
-
-
-
     
     
-    SELECT
-    tbl_setor.id,
-    tbl_setor.nome,
-    COUNT(tbl_colaborador.id) AS quantidade_colaboradores
-FROM tbl_setor
+ -- ================================================================
+-- TESTE DE K-ANONIMATO
+-- ================================================================
 
-LEFT JOIN tbl_colaborador
-    ON tbl_colaborador.id_setor = tbl_setor.id
+-- SELECT
+--     tbl_setor.id,
+--     tbl_setor.nome,
+--     COUNT(tbl_colaborador.id) AS quantidade_colaboradores
+-- FROM tbl_setor
+--
+-- LEFT JOIN tbl_colaborador
+--     ON tbl_colaborador.id_setor = tbl_setor.id
+--
+-- GROUP BY
+--     tbl_setor.id,
+--     tbl_setor.nome
+--
+-- HAVING
+--     COUNT(tbl_colaborador.id) < 4;
 
-GROUP BY
-    tbl_setor.id,
-    tbl_setor.nome
 
-HAVING
-    COUNT(tbl_colaborador.id) < 4;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    SELECT
-    tbl_setor.nome AS setor,
-    COUNT(tbl_colaborador.id) AS quantidade_colaboradores,
+-- ================================================================
+-- TESTE DE K-ANONIMATO PARA DIFERENTES VALORES DE K
+-- ================================================================
 
-    CASE
-        WHEN COUNT(tbl_colaborador.id) >= 6
-            THEN 'Atende k = 6'
-        WHEN COUNT(tbl_colaborador.id) >= 5
-            THEN 'Atende k = 5'
-        WHEN COUNT(tbl_colaborador.id) >= 4
-            THEN 'Atende k = 4'
-        ELSE
-            'Não atende k = 4'
-    END AS resultado_anonimato
+-- SELECT
+--     tbl_setor.nome AS setor,
+--     COUNT(tbl_colaborador.id) AS quantidade_colaboradores,
+--
+--     CASE
+--         WHEN COUNT(tbl_colaborador.id) >= 6
+--             THEN 'Atende k = 6'
+--         WHEN COUNT(tbl_colaborador.id) >= 5
+--             THEN 'Atende k = 5'
+--         WHEN COUNT(tbl_colaborador.id) >= 4
+--             THEN 'Atende k = 4'
+--         ELSE
+--             'Não atende k = 4'
+--     END AS resultado_anonimato
+--
+-- FROM tbl_setor
+--
+-- LEFT JOIN tbl_colaborador
+--     ON tbl_colaborador.id_setor = tbl_setor.id
+--
+-- GROUP BY
+--     tbl_setor.id,
+--     tbl_setor.nome
+--
+-- ORDER BY
+--     quantidade_colaboradores;
 
-FROM tbl_setor
 
-LEFT JOIN tbl_colaborador
-    ON tbl_colaborador.id_setor = tbl_setor.id
+-- ================================================================
+-- MASSA DE DADOS TEMPORÁRIA PARA TESTE DE K-ANONIMATO
+-- ================================================================
 
-GROUP BY
-    tbl_setor.id,
-    tbl_setor.nome
-
-ORDER BY
-    quantidade_colaboradores;
-    
-    
-    
-    
-    
---     START TRANSACTION;
+-- START TRANSACTION;
 
 -- INSERT INTO tbl_colaborador
 -- (
@@ -8308,6 +8300,7 @@ ORDER BY
 --     'Ativo'
 -- FROM tbl_colaborador
 -- WHERE id = 1;
+
 
 -- INSERT INTO tbl_colaborador
 -- (
@@ -8343,28 +8336,29 @@ ORDER BY
 -- WHERE id = 1;
 
 
+-- ================================================================
+-- VERIFICAR QUANTIDADE DE COLABORADORES POR SETOR
+-- ================================================================
 
 -- SELECT
 --     tbl_setor.nome AS setor,
 --     COUNT(tbl_colaborador.id) AS quantidade_colaboradores
 -- FROM tbl_setor
-
+--
 -- LEFT JOIN tbl_colaborador
 --     ON tbl_colaborador.id_setor = tbl_setor.id
-
+--
 -- GROUP BY
 --     tbl_setor.id,
 --     tbl_setor.nome
-
+--
 -- ORDER BY
 --     quantidade_colaboradores;
---     
---     
---     
---     
---     
--- -- ferias
 
+
+-- ================================================================
+-- TESTE DE FÉRIAS
+-- ================================================================
 
 -- SELECT
 --     tbl_ferias.id,
@@ -8375,21 +8369,19 @@ ORDER BY
 --     tbl_ferias.quantidade_dias,
 --     tbl_ferias.status
 -- FROM tbl_ferias
-
+--
 -- INNER JOIN tbl_colaborador
 --     ON tbl_ferias.id_colaborador =
 --        tbl_colaborador.id
-
+--
 -- ORDER BY
 --     tbl_ferias.id_colaborador,
 --     tbl_ferias.data_inicio;
---     
---     
---     
--- -- ================================================================
--- -- TESTE: IDENTIFICAR CONFLITOS DE DATAS DE FÉRIAS
--- -- ================================================================
 
+
+-- ================================================================
+-- TESTE: IDENTIFICAR CONFLITOS DE DATAS DE FÉRIAS
+-- ================================================================
 
 -- START TRANSACTION;
 
@@ -8413,6 +8405,14 @@ ORDER BY
 -- );
 
 
--- ===================================================================================
--- Usa o Script abaixo para remover todos os testes para não modificar em nada o banco 
+-- ================================================================
+-- REMOVER OS DADOS INSERIDOS DURANTE OS TESTES
+-- ================================================================
+--
+-- Utilize o comando abaixo somente depois de executar
+-- START TRANSACTION e realizar os testes.
+--
+-- O ROLLBACK desfaz as alterações realizadas durante
+-- a transação e mantém os dados originais do banco.
+--
 -- ROLLBACK;
